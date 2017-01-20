@@ -1,0 +1,15 @@
+#glcanvas {
+    position: absolute;
+    z-index: 100;
+    left: 50%;
+}
+
+#myImageCanvas {
+    position: absolute;
+    z-index: 0;
+    left: 50%;
+}
+
+#body{
+   
+}
