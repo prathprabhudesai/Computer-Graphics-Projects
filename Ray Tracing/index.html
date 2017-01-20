@@ -1,0 +1,172 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CSC 561 | Prathamesh Prabhudesai</title>
+<script type="text/javascript" src="drawstuff.js"></script>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/mathjs/3.5.2/math.min.js"></script>
+<link rel="stylesheet" href="stylesheet.css">
+</head>
+<body onload="main('0');">
+<center><h1> Project 1 - Ray Tracing </h1></center>
+<center><h3> CSC 561 - Principles of Computer Graphics </h3></center>
+<center><h3> Prathamesh Prabhudesai ( 200111145 )</h3></center>
+<hr>
+<br>
+<center>
+<button onclick="toggleview1()" id="predefinedButton"> Basic Problem </button>
+<button onclick="toggleview2()" id="customButton"> Extra Credit </button>
+</center>
+
+<div id="predefined">
+<br>
+<button onclick="main('1');">Part (a) - Ray Casting Spheres</button>
+<button onclick="main('2');">Part (b) - Blinn-Phong Illumination</button>
+</div>
+
+<div id="custom">
+<center>
+<br>
+<h5>External Light Source (Supports a Single External Light)</h5>
+&nbsp;&nbsp;<button onclick="main('5');">Render</button>
+<h5>Shadows with Blinn Phong Illumination</h5>
+&nbsp;&nbsp;<button onclick="main('6');">Render</button>
+<h5>Triangle with Blinn Phong Illumination (Supports a Single Triangle)</h5>
+&nbsp;&nbsp;<button onclick="main('7')">Render</button>
+</center>
+</div>
+
+
+</center>
+<br><br>
+
+<center><canvas id="viewport" width="512" height="512"></canvas></center>
+</body>
+</html>
+
+<script type="text/javascript">
+  function toggleview1(){
+    if(document.getElementById('predefined').style.display == 'block'){
+      document.getElementById('predefined').style.display = 'none';
+      document.getElementById('predefinedButton').style.backgroundColor = '#ddd';
+      document.getElementById('predefinedButton').style.color = 'black';
+    }
+    else{
+      document.getElementById('predefined').style.display = 'block';
+      document.getElementById('custom').style.display = 'none';
+      document.getElementById('predefinedButton').style.backgroundColor = '#E74C3C';
+      document.getElementById('predefinedButton').style.color = 'white';
+      document.getElementById('customButton').style.backgroundColor = '#ddd';
+      document.getElementById('customButton').style.color = 'black';
+    }
+  }
+
+  function toggleview2(){
+    if(document.getElementById('custom').style.display == 'block'){
+      document.getElementById('custom').style.display = 'none';
+      document.getElementById('customButton').style.backgroundColor = '#ddd';
+      document.getElementById('customButton').style.color = 'black';
+    }
+    else{
+      document.getElementById('predefined').style.display = 'none';
+      document.getElementById('custom').style.display = 'block';
+      document.getElementById('customButton').style.backgroundColor = '#E74C3C';
+      document.getElementById('customButton').style.color = 'white';
+      document.getElementById('predefinedButton').style.backgroundColor = '#ddd';
+      document.getElementById('predefinedButton').style.color = 'black';
+    }
+  }
+
+</script>
+
+
+
+
+<style>
+body{
+margin-left: 25%;
+margin-right: 25%;
+width:50%;
+float: left;
+align-content: center;
+height: auto;
+padding: 25px 5px 25px 5px;
+background-color: #2C3E50;
+font-family: 'Open Sans Light',Helvetica,Arial,sans-serif;
+color: white;
+
+}
+
+h1{
+  font-family: 'Open Sans Light',Helvetica,Arial,sans-serif;
+  font-weight: 400;
+  letter-spacing: -2px;
+  font-size: 1.9rem;
+  color: rgb(240, 240, 240);
+  margin-bottom: 0px;
+  line-height: 2rem;
+  color: #E74C3C;
+}
+
+h3{
+  font-family: 'Open Sans Light',Helvetica,Arial,sans-serif;
+  font-weight: 200;
+  letter-spacing: 0px;
+  font-size: 1.3rem;
+  color: rgb(240, 240, 240);
+}
+
+h4{
+  font-family: 'Open Sans Light',Helvetica,Arial,sans-serif;
+  font-weight: 200;
+  letter-spacing: -1px;
+  font-size: 1.429rem;
+  color: #E74C3C;
+  display: inline-block;
+}
+
+h5{
+font-family: 'Open Sans Light',Helvetica,Arial,sans-serif;
+  font-weight: 200;
+  letter-spacing: -1px;
+  font-size: 1.2rem;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+
+#predefined{
+  display: none;
+}
+
+#custom{
+  display: none; 
+}
+
+#problem{
+  font-family: 'Courier';
+}
+
+button{
+  font-family: 'Open Sans Light',Helvetica,Arial,sans-serif;
+  font-weight: 200;
+  letter-spacing: 0px;
+  font-size: 20px;
+  border-radius: 5px;
+  background-color: #ddd;
+  outline: none;
+  margin-top: 5px;
+}
+button:hover{
+  cursor: pointer;
+  outline: none;
+  background-color: #E74C3C;
+  color: white;
+}
+button:active {
+outline: none;
+border: none;
+background-color: #E74C3C;
+  color: white;
+}
+
+</style>
