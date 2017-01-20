@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Prog 2: Rasterization Shell</title>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gl-matrix/2.3.2/gl-matrix-min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.5.3/math.js"></script>
+    <script src="https://code.jquery.com/jquery-2.x-git.min.js"></script>
+    <script type="text/javascript" src="key_handlings.js"></script>
+    <script type="text/javascript" src="rasterize_keybinds.js"></script>
+  </head>
+  
+
+  <body onload="main();" style="background:#EBEDEF;">
+    <div style="width:70%; float:left; margin-left:15%;">
+      <center>
+	<h1>Project 2: Rasterization </h1>
+	<h2>Prathamesh Prabhudesai</h2>
+	<div style="width:50%; float:left; margin-left:1%;">
+	   <canvas id="glcanvas" width="512" height="512"></canvas>
+	</div>
+	</center>
+	<div style="width:40%; float: left; margin-left:1%; padding: 0px 5px 5px 5px; font-size: 13px; ">
+<strong>
+	  <font face="Courier New">
+	    <ul>
+<li><i>a</i>&nbsp;and&nbsp;<i>d &#8212;&nbsp;</i>translate view left and right along view X</li>
+<li><i>w</i>&nbsp;and&nbsp;<i>s&nbsp;</i>&#8212; translate view forward and backward along view Z</li>
+<li><i>q&nbsp;</i>and&nbsp;<i>e</i>&nbsp;&#8212; translate view up and down along view Y</li>
+<li><i>A</i>&nbsp;and&nbsp;<i>D &#8212;&nbsp;</i>rotate view left and right around view Y (yaw)</li>
+<li><i>W</i>&nbsp;and&nbsp;<i>S&nbsp;</i>&#8212; rotate view forward and backward around view X (pitch)</li>
+<li><i>Q&nbsp;</i>and&nbsp;<i>E</i>&nbsp;&#8212; rotate selection (counter-) clockwise around view Z (roll)</li>
+<li><i>escape &#8212;&nbsp;</i>undo all view changes; restore default view</li>
+	    </ul>
+	    
+	    <ul>
+<li><i>left&nbsp;</i>and <i>right</i>&nbsp;&#8212; select and highlight the next/previous triangle set (previous off)</li>
+<li><i>up </i>and <i>down</i>&nbsp;&#8212; select and highlight the next/previous sphere (previous off)</li>
+<li><i>space</i>&nbsp;&#8212; deselect and turn off highlight</li>
+<li><i>k</i>&nbsp;and <i>; &#8212; </i>translate selection left and right along view X</li>
+<li><i>o</i>&nbsp;and <i>l </i>&#8212; translate selection&nbsp;forward and backward along view Z</li>
+<li><i>i </i>and <i>p</i>&nbsp;&#8212; translate selection&nbsp;up and down along view Y</li>
+<li><i>K</i>&nbsp;and&nbsp;<i>: &#8212;&nbsp;</i>rotate selection&nbsp;left and right around view Y (yaw)</li>
+<li><i>O</i>&nbsp;and&nbsp;<i>L&nbsp;</i>&#8212; rotate selection&nbsp;forward and backward around view X (pitch)</li>
+<li><i>I&nbsp;</i>and&nbsp;<i>P</i>&nbsp;&#8212; rotate selection&nbsp;clockwise and counterclockwise around view Z (roll)</li>
+<li><i>backspace</i>&nbsp;&#8212; undo all sphere and triangle transformations</li>
+</ul></strong>
+	    </font>
+	</div>
+
+    </div>
+
+    
+  </body>
+</html>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s);
+    js.id = id;
+  js.src = "http://code.jquery.com/ui/1.12.1/jquery-ui.js";
+  /*alert("Jquery loaded");*/
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'jquery-uisdk')) ;
+</script>
